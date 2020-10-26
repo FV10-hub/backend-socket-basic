@@ -20,7 +20,6 @@ io.on('connect', client => {
         bandas.votesBandas(payload.id);
         io.emit('bandas-activas', bandas.getBandas());
     });
-    
     client.on('emitir-mensaje', (payload) => {
         console.log(payload);
         client.emit('nuevo-mensaje', payload);
@@ -30,7 +29,6 @@ io.on('connect', client => {
         bandas.addBanda(new Banda(payload.name));
         io.emit('bandas-activas', bandas.getBandas());
     });
-
     //delete
     client.on('delete-banda', (payload) => {
         bandas.deleteBanda(payload.id);
